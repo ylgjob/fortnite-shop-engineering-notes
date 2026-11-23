@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Compare Fortnite Shop Prices Across Rotations</title>
+<meta name="description" content="A practical test for distinguishing a Fortnite shop price change from a different bundle or a missing shop snapshot.">
+<link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; font: 17px/1.65 system-ui, sans-serif; }
+  main { max-width: 43rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+  header { margin-bottom: 2rem; }
+  h1, h2 { line-height: 1.2; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0.5rem 0 1rem; }
+  h2 { font-size: 1.35rem; margin: 2rem 0 0.6rem; }
+  li + li { margin-top: 0.6rem; }
+</style>
+</head>
+<body>
+<main>
+<article>
+<header>
+<p>Fortnite Shop Engineering Notes</p>
+<h1>How to Compare Fortnite Shop Prices Across Rotations</h1>
+<p><em>AI-assisted guide checked against SkinRotation’s offer data model. The prices and offers below are fictional.</em></p>
+</header>
+<p>If a Fortnite outfit appears at 1,500 V-Bucks one day and at 1,800 on the next, the outfit’s price may have changed. It may also be part of a different bundle. A tracker can distinguish the two by recording what each price actually buys.</p>
+<h2>Decide which offers are comparable</h2>
+<p>For each date, record the offer ID, the cosmetic IDs it includes, and its current price in V-Bucks. Compare prices only after checking that the two offers contain the same items. Keep the regular price as a separate field so that a comparison between days always uses the amount the shopper would have paid on each day.</p>
+<ul>
+<li><strong>Same offer and same contents.</strong> A standalone outfit at 1,500 on Monday and 1,200 on Tuesday is a 300 V-Buck decrease in the recorded offer price.</li>
+<li><strong>Same outfit in a different purchase.</strong> A standalone outfit at 1,500 on Monday and a bundle containing the outfit and a pickaxe at 1,800 on Tuesday are different offers. Report the switch to a bundle. There is no standalone Tuesday price to compare.</li>
+<li><strong>Missing Tuesday snapshot.</strong> Keep Monday’s price as the last observed price. Leave the change unverified until you can inspect Tuesday’s rotation.</li>
+</ul>
+<h2>Check the comparison in an archive</h2>
+<p>Open two dates in the <a href="https://skinrotation.com/es/historial/">SkinRotation Fortnite Item Shop archive</a>. Match the included cosmetics before comparing prices, and note whether each listing is a solo offer or a bundle. A useful report records both dates, both offer names, and the reason the prices are comparable.</p>
+</article>
+</main>
+</body>
+</html>
