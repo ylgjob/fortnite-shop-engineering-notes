@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Fortnite Cosmetic URLs After a Catalog Rebuild</title><meta name="description" content="Keep bookmarked cosmetic detail pages working when a catalog import changes names or generating order.">
+<link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/test-fortnite-cosmetic-urls-after-a-catalog-rebuild/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Test Fortnite Cosmetic URLs After a Catalog Rebuild</h1><p><time datetime="2026-11-23">November 23, 2026</time></p>
+<p>Rebuilding a cosmetic catalog can change URLs even when no items were removed. Common causes are slugs generated from display labels and numeric identifiers based on list position. A reliable link needs to stay tied to the same cosmetic before and after an import.</p>
+<h2>Make the fixture change one thing at a time</h2>
+<p>Create a previous catalog with two fictional items, each with a fixed source ID. Save their detail URLs. In the next import, reverse their order, rename the first item, and give the second a different translated label. The saved links should still resolve to their original IDs. Test the response and the actual page title so a generic HTTP 200 fallback does not look like a pass.</p>
+<h2>Handle old URLs and real removals</h2>
+<p>If you improve a public slug, preserve the old route in an alias map and return a permanent redirect to the current preferred URL. The preferred page should identify itself consistently in its canonical tag and in the sitemap. Chain-free redirects matter when a label has changed twice.</p>
+<p>When an item disappears from a new feed, check whether it is no longer in the provider's catalog or merely missing from that import. If you retain an archive record, explain its last-known status. If the record is genuinely gone and you have no equivalent, use an honest not-found response instead of routing everyone to a similarly named cosmetic.</p>
+<p>Exercise existing bookmarks against a real catalog such as the <a href="https://skinrotation.com/de/skins/">SkinRotation cosmetic index</a>. The test passes when the old URL leads to the right entity and the public navigation consistently points to its preferred address.</p>
+</article></main>
+<footer><p>Independent technical notes from SkinRotation. Drafted with AI assistance.</p></footer></body></html>

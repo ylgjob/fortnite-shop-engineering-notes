@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Reconcile a Partial Fortnite Shop Response</title><meta name="description" content="Treat missing shop sections as unknown until a complete refresh confirms the change.">
+<link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/reconcile-a-partial-fortnite-shop-response/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>How to Reconcile a Partial Fortnite Shop Response</h1><p><time datetime="2026-11-23">November 23, 2026</time></p>
+<p>A tracker polls a shop feed and sees 24 offers where it used to see 80. A naive comparison reports 56 departures. Before publishing that result, ask whether the smaller response is a complete rotation or a partial view. The same absence can mean either.</p>
+<h2>Keep completeness separate from offer counts</h2>
+<p>Persist the rotation date, the last successful fetch time, and whatever coverage the source actually reports. If the feed identifies sections, record which were received. If it has a documented completeness signal, use that signal. A drop in counts can trigger a recheck, but it should not by itself decide whether an offer left.</p>
+<p>For the current shop, retain the last confirmed section while an incomplete section is being retried. Label its age and avoid mixing it into statements such as “new today.” For historical archives, commit a confirmed snapshot as one unit and keep provisional data out of the historical comparison.</p>
+<h2>Test three concrete cases</h2>
+<ol><li>Start with a complete fixture of two sections. Remove one section from the next response while leaving the rotation date unchanged. Verify that the missing offers remain unknown and are not marked removed.</li><li>Send a complete response for the next rotation with the same section genuinely absent. Verify that the archive records the change once.</li><li>Replay the initial response after the next rotation has been accepted. Verify that an older response cannot overwrite the accepted snapshot.</li></ol>
+<p>The expected results should come from fixture metadata and exact offer IDs, so a failure points to the incomplete merge rather than an arbitrary item count. The <a href="https://skinrotation.com/es/historial/">SkinRotation shop history</a> provides an example of a dated archive where the difference matters.</p>
+</article></main>
+<footer><p>Independent technical notes from SkinRotation. Drafted with AI assistance.</p></footer></body></html>
