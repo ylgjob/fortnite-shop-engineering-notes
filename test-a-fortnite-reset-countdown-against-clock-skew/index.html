@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test a Fortnite Reset Countdown Against Clock Skew</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/test-a-fortnite-reset-countdown-against-clock-skew/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Test a Fortnite Reset Countdown Against Clock Skew</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>A countdown that reaches zero is often the first thing a player sees when the shop is about to change. If the device clock is four minutes fast, using Date.now() directly can make a tracker declare a reset while the active rotation still has time left.</p><h2>Calibrate the display against one server response</h2><p>Record a server timestamp and the local time when the response is received. While the page stays open, advance the displayed server time using elapsed monotonic time. Clamp all negative durations to zero. A countdown hitting zero should switch to “checking the next rotation” until the server confirms a new rotation ID. Resync on return from a long background interval.</p><h2>A fixture you can reproduce</h2><p>Set the server time to 23:58 UTC and the next reset to 00:00 UTC. Run once with the device four minutes ahead and once four minutes behind. Both runs should start near two minutes. Suspend the page, advance the fixture by three minutes, and keep the old rotation ID. The countdown should stop at zero, and the offers should stay associated with the last confirmed rotation. Finally return a new ID and check that the view updates once.</p><p>The <a href="https://skinrotation.com/">Fortnite Item Shop on SkinRotation</a> is a reference for the live shop view used during the final manual check.</p>
+</article></main>
+<footer><p>Independent technical notes from SkinRotation. Drafted with AI assistance.</p></footer></body></html>

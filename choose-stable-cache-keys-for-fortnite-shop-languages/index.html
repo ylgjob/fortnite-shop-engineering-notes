@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choose Stable Cache Keys for Fortnite Shop Languages</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/choose-stable-cache-keys-for-fortnite-shop-languages/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Choose Stable Cache Keys for Fortnite Shop Languages</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>A cache key such as shop:today looks harmless until the same worker serves several locales. A German request can warm the key with German labels and an English request can then read the same body. The bug may appear only with a cold cache, when testing accounts visit pages in a different order.</p><h2>Keep labels and raw offers at the right layer</h2><p>If the cached response includes localized labels, include locale and rotation ID in the key. If you cache normalized offer IDs and prices without labels, share that cache and localize only the rendered result. Cache failures and empty data only according to the upstream policy. A zero-offer error should never warm the key intended for the day&#x27;s confirmed rotation.</p><h2>Check both request orders</h2><p>Start with empty caches. Request German, then English, and inspect the language and offer labels in both response bodies. Reset the cache and reverse the order. Finally request both locales together at the rotation boundary. Assert each response is attached to the expected locale and rotation ID. The <a href="https://skinrotation.com/">Fortnite Item Shop on SkinRotation</a> gives a live locale reference for the last manual check.</p>
+</article></main>
+<footer><p>Independent technical notes from SkinRotation. Drafted with AI assistance.</p></footer></body></html>

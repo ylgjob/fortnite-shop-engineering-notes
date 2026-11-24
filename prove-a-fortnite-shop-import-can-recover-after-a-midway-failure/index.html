@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prove a Fortnite Shop Import Can Recover After a Midway Failure</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/prove-a-fortnite-shop-import-can-recover-after-a-midway-failure/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Prove a Fortnite Shop Import Can Recover After a Midway Failure</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>A shop import often writes a rotation record and then writes hundreds of offers. Losing a connection halfway through can leave a day in the archive with only part of its shop. Retrying without cleanup can add duplicate offers or give readers two different histories for the same date.</p><h2>Make the published snapshot one unit</h2><p>Write into staging or use a database transaction. Attach a confirmed snapshot to the public date only after the records and counts pass validation. When routing readers to a snapshot, use the public pointer rather than automatically selecting the latest staging row. Imports for the same rotation should preserve one logical identity.</p><h2>Interrupt the test at a meaningful boundary</h2><p>Arrange a fixture with two sections. Force the second write to fail after the first succeeds. The public archive should retain the last complete record or show a clear unavailable state. Retry with the same rotation and verify both sections appear once. Repeat with two concurrent retries and check the final record count. The <a href="https://skinrotation.com/es/historial/">SkinRotation Fortnite shop history</a> illustrates why displaying only complete history matters for readers comparing dates.</p>
+</article></main>
+<footer><p>Independent technical notes from SkinRotation. Drafted with AI assistance.</p></footer></body></html>

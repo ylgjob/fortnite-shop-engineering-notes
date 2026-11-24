@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validate a Fortnite Offer With Two Bundle Members That Share a Label</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/validate-a-fortnite-offer-with-two-bundle-members-that-share-a-label/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Validate a Fortnite Offer With Two Bundle Members That Share a Label</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>Two cosmetics can look interchangeable in a quick fixture if they share a display label. A bundle parser that keys members on name may then silently drop one. That changes both the card count and the destination a player gets after selecting a member.</p><h2>Define membership with stable identity</h2><p>Store the bundle offer ID and a list of member keys. Each member key needs its source ID and, when identifiers overlap across types, its type. Keep the localized label as presentation data. If the upstream feed repeats the same member key, deduplicate the exact repeat without suppressing distinct items with identical names.</p><h2>Test the collision</h2><p>Create a bundle with an outfit and a back bling that both display “Harbor.” Confirm that both are visible, have distinct destinations, and don&#x27;t each inherit the bundle price. Then add a second record with the same outfit key. The resulting UI should show two distinct members, not three. Switch languages so the duplicate display names become different, and compare member IDs against the original fixture.</p><p>A real catalog such as the <a href="https://skinrotation.com/de/skins/">SkinRotation cosmetic catalog</a> is suitable for checking how different cosmetic types are labeled.</p>
+</article></main>
+<footer><p>Independent technical notes from SkinRotation. Drafted with AI assistance.</p></footer></body></html>

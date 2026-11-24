@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choose the Previous Recorded Fortnite Shop Day in a Gapped Archive</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/choose-the-previous-recorded-fortnite-shop-day-in-a-gapped-archive/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Choose the Previous Recorded Fortnite Shop Day in a Gapped Archive</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>A date archive might have records for Friday and Sunday because Saturday&#x27;s import did not finish. A “previous day” control on Sunday can mean Saturday on the calendar or Friday in the archive. A tracker should make that distinction visible so the reader knows which date they are seeing.</p><h2>Label dates by what the controls do</h2><p>A control named “Previous recorded rotation” should follow the sorted list of confirmed dates. A calendar control should land on the requested date even when its snapshot is unavailable. Put the date in the page heading and URL, and show an explicit gap message with links to the adjacent recorded dates.</p><h2>Fixture for adjacent days and adjacent records</h2><p>Seed snapshots for Friday and Sunday. From Sunday, verify that Previous recorded rotation leads to Friday. Select Saturday directly and confirm the page explains that it has no snapshot and gives both adjacent records. Then backfill Saturday and verify that the navigation updates without changing Friday or Sunday&#x27;s URLs. Repeat for the oldest date, where the previous-record button should be absent.</p><p>Use the <a href="https://skinrotation.com/es/historial/">SkinRotation Fortnite shop history</a> for a live example of an archive organized around rotation dates.</p>
+</article></main>
+<footer><p>Independent technical notes from SkinRotation. Drafted with AI assistance.</p></footer></body></html>

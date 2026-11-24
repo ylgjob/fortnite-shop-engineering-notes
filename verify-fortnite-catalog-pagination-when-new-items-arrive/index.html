@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verify Fortnite Catalog Pagination When New Items Arrive</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/verify-fortnite-catalog-pagination-when-new-items-arrive/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Verify Fortnite Catalog Pagination When New Items Arrive</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>An outfit catalog sorted by last seen date needs a tie-breaker. Without one, two items with the same timestamp can trade places between requests. A reader paging forward can see an item twice and miss another.</p><h2>Use a stable ordering over one result set</h2><p>Sort by the primary key, such as descending last-seen time, and a stable secondary key, such as the cosmetic ID. A continuation cursor needs both values. If new items may appear between requests, either give the cursor a snapshot version or explain that loading another page uses the current catalog. The first page refresh should make newly inserted entries visible.</p><h2>Run a six-item comparison</h2><p>Give four items the same date, set the page size to three, and record the IDs from the first and second pages. Assert that the union contains six unique IDs in the expected order. Insert a new item above the first page after starting the test, then repeat the second-page request with the same cursor. For a snapshot cursor, the earlier view should stay stable. Verify that starting over shows the insertion.</p><p>A searchable catalog such as the <a href="https://skinrotation.com/de/skins/">SkinRotation cosmetic catalog</a> gives you a reference for the manual browsing pass.</p>
+</article></main>
+<footer><p>Independent technical notes from SkinRotation. Drafted with AI assistance.</p></footer></body></html>
