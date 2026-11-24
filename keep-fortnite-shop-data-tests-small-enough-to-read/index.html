@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keep Fortnite Shop Data Tests Small Enough to Read</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/keep-fortnite-shop-data-tests-small-enough-to-read/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Keep Fortnite Shop Data Tests Small Enough to Read</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>A whole shop dump can be handy when something breaks in production, but it is a tough test case to read. If you are checking how a missing bundle member is shown, start with one bundle and two entries. Remove one entry and write down exactly what the page should show.</p><p>Keep a second case where the item exists but has no display name. A missing record and a missing name are two different things. Separate fixtures make it obvious which rule is broken when a test fails.</p><p>You can use the <a href="https://skinrotation.com/">Fortnite Item Shop on SkinRotation</a> to see the kinds of offers you need to represent, then make tiny examples with fictional IDs. Give the fixtures names that explain the problem, such as “bundle refers to an absent item”. Save full dumps for checks that really need them.</p>
+</article></main>
+</body></html>

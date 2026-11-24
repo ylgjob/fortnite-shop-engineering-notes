@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check Fortnite Item Totals After a Category Filter</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/check-fortnite-item-totals-after-a-category-filter/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Check Fortnite Item Totals After a Category Filter</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>An “Outfits (12)” tab sets a simple expectation. When you open it, you should see 12 results. The count can go wrong if the page counts every outfit inside a bundle but displays the bundle as a single card.</p><p>Decide what the label counts. If the list displays offers, count displayed offers. If the site has a cosmetic catalog, that count can refer to individual cosmetics. Put a bundle that contains three outfits and a standalone outfit into a test shop. Apply the filter and compare the number beside the tab with the rendered list.</p><p>Try an additional text search inside the category. If the tab number stays at the unfiltered total, the page needs to make that clear or give a separate result count. Start with the category layout on the <a href="https://skinrotation.com/de/">German Fortnite Item Shop on SkinRotation</a>.</p>
+</article></main>
+</body></html>

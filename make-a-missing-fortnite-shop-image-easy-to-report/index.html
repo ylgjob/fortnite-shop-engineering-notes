@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Make a Missing Fortnite Shop Image Easy to Report</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/make-a-missing-fortnite-shop-image-easy-to-report/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Make a Missing Fortnite Shop Image Easy to Report</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>“The picture is broken” leaves a maintainer guessing which card to open. A short report with the item page, the cosmetic name, and the time of the problem usually narrows it down right away.</p><p>When you reproduce the issue, note whether the broken image is in the shop grid, the catalog, or both. In the browser&#x27;s Network panel, find the failed image request. Record its status code and the public image address. A 404 on one image and a blocked image domain across the whole page are different problems.</p><p>Use a single cosmetic page from the <a href="https://skinrotation.com/skins/">SkinRotation cosmetic catalog</a> when you report it. There is no need to send cookies, request headers, or a dump of all your browser traffic. Once fixed, check the same page in a fresh tab so a local cache does not hide the result.</p>
+</article></main>
+</body></html>

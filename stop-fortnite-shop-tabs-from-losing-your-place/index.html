@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stop Fortnite Shop Tabs From Losing Your Place</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/stop-fortnite-shop-tabs-from-losing-your-place/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Stop Fortnite Shop Tabs From Losing Your Place</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>Suppose you have scrolled halfway through outfits and want a quick look at gliders. When you return to outfits, jumping to the top makes you hunt for the same card again. That gets old fast on a long shop page.</p><p>Save the position for each view during the visit. If new items can move the list, remember the ID of the first fully visible card as well as the scroll offset. When that card is still present, bring it back into view. If it is gone, starting at the top is easy to understand.</p><p>Run the check on a narrow screen and a big one with the <a href="https://skinrotation.com/de/">German Fortnite Item Shop on SkinRotation</a> as a reference for categories. Switch tabs, use the browser Back button, and change the search text once. A new search should take you to its first result. Returning to the same filter should restore your place.</p>
+</article></main>
+</body></html>

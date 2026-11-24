@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Show the Same Fortnite Skin Under Its Old Search Name</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/show-the-same-fortnite-skin-under-its-old-search-name/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Show the Same Fortnite Skin Under Its Old Search Name</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>Someone may remember the name from the first time they saw an outfit. If they type that name into a shop tracker after a rename, an empty search makes them think the outfit has gone missing.</p><p>Keep a short list of old names against the cosmetic ID. Search the current name and the aliases, then return each ID once. Put exact matches for current names first. When an old name matched, a small “formerly called …” note can explain why the result appeared.</p><p>Try a sample with one current name that is also an alias for a different outfit. Both outfits should appear, with the current-name match first. Then type a name that matches two aliases for one outfit. That should still yield one card. The <a href="https://skinrotation.com/skins/">SkinRotation cosmetic catalog</a> is a place to see what information readers already expect on an outfit page.</p>
+</article></main>
+</body></html>
