@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check Fortnite Shop Last-Modified Dates Without Changing Old Pages</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/check-fortnite-shop-last-modified-dates-without-changing-old-pages/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Check Fortnite Shop Last-Modified Dates Without Changing Old Pages</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>If a shop import runs every day, should it change the Last-Modified date on every page? Start with what actually changed. A saved rotation can stay the same while the current shop gets a new lineup.</p><p>Pick an old day and the current shop. Record their headers and save a short copy of the visible offer lists. Run a refresh with a different lineup for today. Fetch both pages again. Today should show the new lineup. The older page can keep its prior Last-Modified value if its content did not change.</p><p>Pick a rotation from the <a href="https://skinrotation.com/es/historial/">SkinRotation Fortnite shop history</a> as the old example. Check the server header separately from the date on the page. A header gives clients information about the response. The date in the heading tells a player which shop they opened.</p>
+</article></main>
+</body></html>

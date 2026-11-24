@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test a Fortnite Shop Import When the Feed Asks You to Slow Down</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/test-a-fortnite-shop-import-when-the-feed-asks-you-to-slow-down/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Test a Fortnite Shop Import When the Feed Asks You to Slow Down</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>A shop feed can ask a client to slow down. If a scheduled job retries immediately, several copies of the job may start hitting the same feed just as it is trying to recover.</p><p>In a test, have the first fetch return HTTP 429 with Retry-After set to sixty seconds. Advance a test clock to fifty-nine seconds and check that no new call goes out. Advance it again and allow one retry. A second copy of the scheduled job should see the wait and should not start making its own requests.</p><p>Open the <a href="https://skinrotation.com/">Fortnite Item Shop on SkinRotation</a> to see the sort of page players may be using while a background job waits. Keep serving your saved rotation during the pause. If you display an update time, show when the data was last fetched successfully.</p>
+</article></main>
+</body></html>

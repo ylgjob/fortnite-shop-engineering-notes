@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare Fortnite Shop Import Errors Between Runs</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/compare-fortnite-shop-import-errors-between-runs/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Compare Fortnite Shop Import Errors Between Runs</h1><p><time datetime="2026-11-24">November 24, 2026</time></p>
+<p>“Import failed” is a useful first signal, but it does not tell you whether yesterday&#x27;s failure and today&#x27;s are the same. Give each failed run a few details you can read side by side.</p><p>Record the expected rotation, the stage, and the reason. A timeout while downloading a feed and a missing price field during conversion are different problems. When useful, record the offer ID and keep a small example without session or personal data.</p><p>Use the <a href="https://skinrotation.com/">Fortnite Item Shop on SkinRotation</a> to identify a common offer type for a sample. Make one import fail before it reads any offers. Make another fail on a single malformed offer. The two report lines should point to different stages and be short enough to compare without opening the full logs.</p>
+</article></main>
+</body></html>
