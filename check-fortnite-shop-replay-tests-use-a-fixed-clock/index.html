@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check Fortnite Shop Replay Tests Use a Fixed Clock</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/check-fortnite-shop-replay-tests-use-a-fixed-clock/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Check Fortnite Shop Replay Tests Use a Fixed Clock</h1><p><time datetime="2026-11-26">November 26, 2026</time></p>
+<p>A test that calls the real clock may pass at lunch and fail after midnight. That is especially confusing when the fixture still contains offers for the previous day.</p><p>Give the test a clock it can set. Run the same fixture at 23:59 and again at 00:01 in the time zone your archive uses. Keep the snapshot date fixed. Assert which parts of the interface change with time and which parts come from the saved rotation.</p><p>Start from a layout such as the <a href="https://skinrotation.com/es/historial/">SkinRotation Fortnite shop history</a> to decide which label deserves the assertion. For a second test, run the same case with a browser or process set to a different time zone. A test that stays fixed is easier to rerun long after the original rotation.</p>
+</article></main>
+</body></html>

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Fortnite Shop Changes With One Offer That Leaves and Comes Back</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/test-fortnite-shop-changes-with-one-offer-that-leaves-and-comes-back/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Test Fortnite Shop Changes With One Offer That Leaves and Comes Back</h1><p><time datetime="2026-11-26">November 26, 2026</time></p>
+<p>An offer can show up on Monday, disappear Tuesday, and return Wednesday. If the tracker only asks whether it was ever seen before, it can miss the difference between a return and something that stayed on sale.</p><p>Make three dated snapshots with the same offer ID on the first and third days. Compare Wednesday with the previous confirmed day. The tracker should recognize the return. Add an offer that appears all three days and another that first appears Wednesday so the fixture covers all three outcomes.</p><p>Choose an archive layout from the <a href="https://skinrotation.com/es/historial/">SkinRotation Fortnite shop history</a> for the manual check. Replace Tuesday with a missing snapshot and rerun the classification. The page should communicate what it can tell without treating a missing day as proof the offer left.</p>
+</article></main>
+</body></html>

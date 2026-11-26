@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set Time Limits on Separate Stages of a Fortnite Shop Refresh</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/set-time-limits-on-separate-stages-of-a-fortnite-shop-refresh/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Set Time Limits on Separate Stages of a Fortnite Shop Refresh</h1><p><time datetime="2026-11-26">November 26, 2026</time></p>
+<p>A shop refresh can spend too long downloading the feed, waiting for a translation, or saving its result. One long timer at the end gives you little information about where the job got stuck.</p><p>Give each stage a deadline and record which one ran out of time. In a test, delay the translation response until its deadline passes. If your shop allows a fallback label, confirm that the price and date can still be published with that label. Delay the main feed next and check that the work stops before it tries to save a result.</p><p>Use the <a href="https://skinrotation.com/de/">German Fortnite Item Shop on SkinRotation</a> as an example of the view served while a refresh runs. Check that an unfinished job cannot leave a loading message on the public page indefinitely.</p>
+</article></main>
+</body></html>

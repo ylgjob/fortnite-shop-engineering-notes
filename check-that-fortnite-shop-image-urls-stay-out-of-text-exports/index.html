@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check That Fortnite Shop Image URLs Stay Out of Text Exports</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/check-that-fortnite-shop-image-urls-stay-out-of-text-exports/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Check That Fortnite Shop Image URLs Stay Out of Text Exports</h1><p><time datetime="2026-11-26">November 26, 2026</time></p>
+<p>Someone may want to copy price history into a spreadsheet or read it with a small script. A useful export does not need artwork URLs, layout flags, or every field the web page uses.</p><p>Write down the columns that matter before building the export. For a day-by-day price list, try date, offer ID, name, amount, and currency. Keep some indication of bundle or standalone if you expect to compare both. Test a missing amount and a two-line name.</p><p>Use an example from the <a href="https://skinrotation.com/es/historial/">SkinRotation Fortnite shop history</a> to choose real-looking records. Export a small sample and open it without internet access. The reader should be able to understand the prices without following image links or loading the original page.</p>
+</article></main>
+</body></html>

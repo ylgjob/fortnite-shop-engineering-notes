@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keep Different Fortnite Cosmetic Variants Linked to the Right Base Item</title><link rel="canonical" href="https://ylgjob.github.io/fortnite-shop-engineering-notes/keep-different-fortnite-cosmetic-variants-linked-to-the-right-base-item/">
+<style>
+body {max-width:43rem;padding:3rem 1.25rem;margin:auto;background:#faf9f3;color:#1e2721;font:1.125rem/1.7 system-ui,sans-serif}
+a {color:#18583f;text-underline-offset:.15em} h1,h2{line-height:1.2} h1{font-size:clamp(2rem,6vw,3rem)} footer{border-top:1px solid #b9bfb6;margin-top:2rem;font-size:.92rem}
+</style></head><body>
+<header><nav aria-label="Blog"><a href="../">Fortnite Shop Engineering Notes</a></nav></header>
+<main><article><h1>Keep Different Fortnite Cosmetic Variants Linked to the Right Base Item</h1><p><time datetime="2026-11-26">November 26, 2026</time></p>
+<p>Several styles can belong to one outfit. If you match variants by display name, two outfits with similar titles may end up sharing a variant. The catalog can then show a picture for the wrong item.</p><p>In a sample file, give two base items similar names. Give each a different base ID and one variant. Import the file and verify that each variant is attached to its own base. Add a variant with a missing parent and check whether it is held aside until that parent arrives.</p><p>Use the <a href="https://skinrotation.com/skins/">SkinRotation cosmetic catalog</a> to see what players expect to find when opening a cosmetic. Check the visible list as well as the stored IDs. A test can pass on the database join and still leave the wrong picture or label on the page.</p>
+</article></main>
+</body></html>
